@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
+
+:root {
+    --primary-color: #AAABBC;
+    --secondary-color: #7D8491;
+    --primary-color-1: #13505B;
+
+    --color-neutral-1: #2660A4;
+    --color-neutral-2: #D0E3C4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    align-items: center;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+#password_img {
+    width: 100px;
+}
+
+#title {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--primary-color-1);
+    margin-bottom: 10px;
+}
+
+#password_container {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    max-width: 400px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--secondary-color);
+    color: var(--color-neutral-2);
+    border-radius: 8px;
+    padding: 8px 18px;
+}
+
+#password {
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#copy {
+    background-color: transparent;
+    color: var(--color-neutral-2);
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    height: 40px;
+    width: 30px;
+}
+
+#copy:hover {
+    color: var(--color-neutral-1);
+}
+
+#password_itens {
+    width: 400px;
+    background-color: var(--secondary-color);
+    color: var(--color-neutral-2);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 18px;
+}
+
+.option {
+    display: flex;
+    gap: 14px;
+}
+
+#size {
+    width: 50px;
+    text-align: center;
+    border-radius: 4px;
+    border: none;
+}
+
+#size::-webkit-inner-spin-button,
+#size::-webkit-outer-spin-button {
+    opacity: 1;
+}
+
+#generate {
+    background-color: var(--color-neutral-1);
+    border: none !important;
+    margin-top: 12px !important;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-neutral-2);
+    border: none;
+    padding: 10px 0px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#generate:hover {
+    background-color: var(--primary-color-1);
+}
