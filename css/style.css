@@ -46,7 +46,7 @@ body {
 }
 
 #password_container {
-    display: flex;
+    display: none;
     gap: 10px;
     width: 100%;
     max-width: 400px;
@@ -56,6 +56,10 @@ body {
     color: var(--color-neutral-2);
     border-radius: 8px;
     padding: 8px 18px;
+}
+
+#password_container.show {
+    display: flex;
 }
 
 #password {
