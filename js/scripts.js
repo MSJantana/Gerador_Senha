@@ -4,22 +4,22 @@ function getChartTypes(){
     const numbers = document.querySelector('#numbers').checked;
     const specialcaracteres = document.querySelector('#symbols').checked;
 
-    const ChartTypes = [];
+    const chartTypes = [];
 
     if (uppercase) { 
-        ChartTypes.push('ABCDEFGHIJKLMNOPQRSTUVWXYZ');
+        chartTypes.push('ABCDEFGHIJKLMNOPQRSTUVWXYZ');
     } 
     if (lowercase){
-        ChartTypes.push('abcdefghijklmnopqrstuvwxyz');    
+        chartTypes.push('abcdefghijklmnopqrstuvwxyz');    
     }
     if (numbers) {
-        ChartTypes.push('0123456789');
+        chartTypes.push('0123456789');
     }
     if (specialcaracteres) { 
-        ChartTypes.push('?/~^{}[]!@#$%&*()_-+=.,:;');
+        chartTypes.push('!@#$%^&*()+?><:{}[]');
     }
 
-    return ChartTypes;
+    return chartTypes;
 }
 
 function getPasswordsize() { 
@@ -29,10 +29,10 @@ function getPasswordsize() {
     }else return size;
 }
 
-function generatePasswrd(size, ChartTypes) {
+function generatePasswrd(size, chartTypes) {
     let password = '';
     for (let i = 0; i < size; i++) {
-        password += randonChartype(ChartTypes);
+        password += randonChartype(chartTypes);
     }
     return password;
 
@@ -50,16 +50,13 @@ function message(text, status = 'success') {
     }).showToast();
 }
 
-
-function randonChartype(ChartTypes) {
-    const chart = Math.floor(Math.random() * ChartTypes.length);
-    return ChartTypes [chart][Math.floor(Math.random() * ChartTypes[chart].length)];
+function randonChartype(chartTypes) {
+    const chart = Math.floor(Math.random() * chartTypes.length);
+    return chartTypes [chart][Math.floor(Math.random() * chartTypes[chart].length)];
 }
 
 
 document.querySelector('#generate').addEventListener('click', function() {
-    //console.log(randonChartype(getChartTypes()));
-    //console.log(generatePasswrd(getPasswordsize(),getChartTypes()));
     const size = getPasswordsize();
     const chartType = getChartTypes();
 
