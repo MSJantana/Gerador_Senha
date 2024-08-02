@@ -10,7 +10,6 @@ O sistema foi desenvolvido utilizando HTML, CSS, e JavaScript, formando a stack 
 O JavaScript foi utilizado para a lógica de geração de senhas, incluindo a criação de funções para selecionar caracteres aleatórios de diferentes conjuntos (letras, números, símbolos) 
 e combinar essas opções de acordo com as especificações do usuário. A interface do usuário foi estilizada com CSS para fornecer uma experiência de uso amigável e intuitiva.
 
-Processo de Desenvolvimento
 O desenvolvimento do sistema seguiu uma abordagem iterativa. Inicialmente, foram definidos os requisitos básicos, como a capacidade de incluir ou excluir 
 certos tipos de caracteres (maiúsculas, minúsculas, números, símbolos) e a especificação do comprimento da senha. Posteriormente, o foco foi na implementação da lógica de geração de senhas, 
 utilizando funções de JavaScript como Math.random() para a aleatoriedade e manipulação de strings para a construção das senhas. A integração e manipulação dos elementos da DOM permitiu que os usuários pudessem interagir com a aplicação de forma dinâmica.
