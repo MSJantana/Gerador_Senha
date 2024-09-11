@@ -75,7 +75,19 @@ document.querySelector('#generate').addEventListener('click', function() {
 });
 
 document.querySelector('#copy').addEventListener('click', function () {
-    navigator.clipboard.writeText(document.querySelector('#password').textContent);
-    message('Senha copiada com sucesso!', "success");
-});
+    const password = document.querySelector('#password').textContent;
 
+    if (password) {
+        navigator.clipboard.writeText(password)
+        .then(() => {
+            message('Senha copiada com sucesso!', 'success');
+        })
+        .catch((err) => {
+            message('Erro ao copiar senha', 'warning',err);
+        });    
+
+        
+    }else {
+        message('Nenhuma senha gerada', 'warning');
+    }
+});
