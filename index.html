@@ -38,15 +38,11 @@
 
       <div id="password_itens">
         <div class="option">
-          <label for="size">Tamanho da Senha</label>
-          <input
-            type="number"
-            id="size"
-            name="size"
-            min="4"
-            max="50"
-            value="12"
-          />
+          <div class="range-slider-container">
+            <label for="size">Número de Caracteres da Senha</label>
+            <input id="size" type="range" min="0" max="50" value="12" data-color="#f00" class="range-slider range-slider-red" id="range-slider-red" />
+            <input id="size-input" type="input" min="0" max="50" value="12" class="input-slider input-slider-red" id="input-slider-red " />
+          </div>         
         </div>
 
         <div class="option">
@@ -101,5 +97,6 @@
       src="https://cdn.jsdelivr.net/npm/toastify-js"
     ></script>
     <script src="js/scripts.js" defer></script>
+    <script src="js/slice.js" defer></script>
   </body>
 </html>

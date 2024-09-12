@@ -48,14 +48,14 @@ body {
 #password_container {
     display: none;
     gap: 10px;
-    width: 100%;
-    max-width: 400px;
+    width: 200%;
+    max-width: 600px;
     justify-content: space-between;
     align-items: center;
     background-color: var(--secondary-color);
     color: var(--color-neutral-2);
     border-radius: 8px;
-    padding: 8px 18px;
+    padding: 8px 18px;    
 }
 
 #password_container.show {
@@ -63,7 +63,7 @@ body {
 }
 
 #password {
-    font-size: 14px;
+    font-size: 18px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -84,7 +84,7 @@ body {
 }
 
 #password_itens {
-    width: 400px;
+    width: 600px;
     background-color: var(--secondary-color);
     color: var(--color-neutral-2);
     border-radius: 8px;
@@ -94,9 +94,33 @@ body {
     padding: 18px;
 }
 
+.range-slider-container {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    width: 100%;
+}
+
+input[type="range"] {
+    width: 35%!important;
+    height: 40px!important;  
+}
+input[type="input"] {
+    width: 60px!important; 
+    align-items: center!important; 
+}    
+
 .option {
     display: flex;
     gap: 14px;
+    align-items: center;
+}
+
+.input-slider{
+    width: 75%;
+    align-items: center!important;
+    font: 1em 'Open Sans', sans-serif;
+    padding: 0 15px;    
 }
 
 #size {

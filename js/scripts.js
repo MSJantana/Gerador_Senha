@@ -197,6 +197,16 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('#symbols').checked = false;
     }
 
+    document.querySelector('#size').addEventListener('input', function() {
+      const size =this.value;
+      document.querySelector('#size-input').value = size
+    });
+
+    document.querySelector('#size-input').addEventListener('input', function() {
+      const size = this.value;
+      document.querySelector('#size').value = size;
+    });
+
     document.querySelector('#pronunceable').addEventListener('change', function() {
         if (this.checked) {
             disableNumbersAndSymbols();
