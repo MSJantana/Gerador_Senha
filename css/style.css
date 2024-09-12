@@ -5,9 +5,8 @@
 :root {
     --primary-color: #FCFFFD;
     --secondary-color: #7D8491;
-    --primary-color-1: #13505B;
+    --primary-color-1: #28403D;
     --primary-color-3: #667761;
-
     --color-neutral-1: #2660A4;
     --color-neutral-2: #D0E3C4;
 }
@@ -39,7 +38,7 @@ body {
 }
 
 #title {
-    font-size: 24px;
+    font-size: 35px;
     font-weight: 500;
     color: var(--primary-color-1);
     margin-bottom: 10px;

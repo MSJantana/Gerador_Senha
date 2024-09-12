@@ -22,12 +22,12 @@
       href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
     />
     <link rel="stylesheet" href="css/style.css" />
-    <title>Gerador de Senha</title>
+    <title>SafePass</title>
   </head>
   <body>
     <div id="container">
       <img src="img/password-svgrepo-com.svg" id="password_img" alt="" />
-      <h1 id="title">Gerador de Senha</h1>
+      <h1 id="title">SafePass</h1>
 
       <div id="password_container">
         <span id="password"></span>
@@ -41,7 +41,7 @@
           <div class="range-slider-container">
             <label for="size">Número de Caracteres da Senha</label>
             <input id="size" type="range" min="0" max="50" value="12" data-color="#f00" class="range-slider range-slider-red" id="range-slider-red" />
-            <input id="size-input" type="input" min="0" max="50" value="12" class="input-slider input-slider-red" id="input-slider-red " />
+            <input id="size-input" type="input" min="0" max="50" value="12" readonly class="input-slider input-slider-red" id="input-slider-red " />
           </div>         
         </div>
 
@@ -76,7 +76,7 @@
         </div> 
         
         <div class="option">
-          <input type="radio" id="getAllCharacters" name="passwordType"/>
+          <input type="radio" checked id="getAllCharacters" name="passwordType"/>
           <label for="getAllCharacters">Todos os Caracteres</label>
         </div>
 
@@ -97,7 +97,6 @@
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/toastify-js"
     ></script>
-    <script src="js/scripts.js" defer></script>
-    <script src="js/slice.js" defer></script>
+    <script src="js/scripts.js" defer></script>    
   </body>
 </html>

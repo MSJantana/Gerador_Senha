@@ -44,10 +44,10 @@ document.addEventListener('DOMContentLoaded', function() {
       Toastify({
         text: text,
         duration: 3000,
-        stoponfocus: true,
+        stopOnFocus: true,
         close: true,
         style: {
-          backgroundColor: status === 'success' ? '#84cc16' : '#dc2626',
+          background: status === 'success' ? '#033B3D' : '#526126',
           boxShadow: 'none'
         }
       }).showToast();
