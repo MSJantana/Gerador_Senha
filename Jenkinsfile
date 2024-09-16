@@ -11,10 +11,10 @@ pipeline {
                git branch: 'main', url: 'https://github.com/MSJantana/Gerador_Senha.git'
             }        
         }
-        stage('Build') {
+        stage('Construir Imagem Docker - Build') {
             steps {
                 script {
-                    docker.build DOCKER_IMAGE
+                    sh 'docker build -t ${DOCKER_IMAGE} .'
                 }
             }
         }
