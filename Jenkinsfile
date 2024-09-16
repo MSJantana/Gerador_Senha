@@ -9,16 +9,20 @@ pipeline {
         stage('Clonar Git') {
             steps {
                git branch: 'main', url: 'https://github.com/MSJantana/Gerador_Senha.git'
-            }
+            }        
         }
-    }
-    stages {
-        stage('Build Docker Image') {
+        stage('Build') {
             steps {
                 script {
-                    docker.build ("${DOCKER_IMAGE}")
+                    docker.build DOCKER_IMAGE
                 }
             }
         }
-    }
+        stage('Clean UP'){
+            steps{
+                docker.image ("${DOCKER_IMAGE}").remove()
+            }
+        }
+
+    }       
 }
