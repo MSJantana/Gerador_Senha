@@ -18,11 +18,5 @@ pipeline {
                 }
             }
         }
-        stage('Clean UP'){
-            steps{
-                docker.image ("${DOCKER_IMAGE}").remove()
-            }
-        }
-
     }       
 }
