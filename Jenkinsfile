@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = 'safePass:latest'
+        DOCKER_IMAGE = 'safepass:latest'
     }
 
     stages {
