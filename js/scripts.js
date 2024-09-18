@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
         stopOnFocus: true,
         close: true,
         style: {
-          background: status === 'success' ? '#033B3D' : '#526126',
+          background: status === 'success' ? '#033B3D' : '#53736A',
           boxShadow: 'none'
         }
       }).showToast();
