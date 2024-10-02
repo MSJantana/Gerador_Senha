@@ -15,10 +15,10 @@ COPY filebeat.yml /etc/filebeat/filebeat.yml
 COPY packetbeat.yml /etc/packetbeat/packetbeat.yml
 
 # Copia o script entrypoint
-COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+COPY entrypoint.sh /entrypoint.sh
 
 # Torna o script executável
-RUN chmod +x /usr/local/bin/entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
 # Exponha a porta do Apache (porta 80)
 EXPOSE 80
