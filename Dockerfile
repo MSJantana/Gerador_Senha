@@ -24,7 +24,7 @@ RUN chmod +x /entrypoint.sh
 EXPOSE 80
 
 # Define o script de entrypoint e o comando padrão
-ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
 CMD ["httpd-foreground"]
 
 
