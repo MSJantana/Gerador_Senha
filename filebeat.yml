@@ -19,13 +19,13 @@ filebeat.inputs:
 # Below are the input-specific configurations.
 
 # filestream is an input for collecting log messages from files.
-- type: filestream
+- type: log
 
   # Unique ID among all inputs, an ID is required.
   id: my-filestream-id
 
   # Change to true to enable this input configuration.
-  enabled: true
+  enabled: false
 
   # Paths that should be crawled and fetched. Glob based paths.
   paths:
@@ -50,8 +50,8 @@ filebeat.inputs:
 
   # Optional additional fields. These fields can be freely picked
   # to add additional information to the crawled log files for filtering
-  fields:
-    service: "apache"
+  #fields:
+  #  service: "apache"
   #  level: debug
   #  review: 1
 
@@ -112,7 +112,7 @@ setup.kibana:
   # Scheme and port can be left out and will be set to the default (http and 5601)
   # In case you specify and additional path, the scheme is required: http://localhost:5601/path
   # IPv6 addresses should always be defined as: https://[2001:db8::1]:5601
-  host: "172.26.0.2:5601"
+  host: "kibana:5601"
 
   # Kibana Space ID
   # ID of the Kibana Space into which the dashboards should be loaded. By default,
@@ -139,7 +139,7 @@ setup.kibana:
 # ---------------------------- Elasticsearch Output ----------------------------
 output.elasticsearch:
   # Array of hosts to connect to.
-  hosts: ["172.26.0.3:9200"]
+  hosts: ["elasticsearch:9200"]
 
   # Performance preset - one of "balanced", "throughput", "scale",
   # "latency", or "custom".
@@ -180,7 +180,7 @@ processors:
 
 # Sets log level. The default log level is info.
 # Available log levels are: error, warning, info, debug
-logging.level: info
+#logging.level: info
 
 # At debug level, you can selectively enable logging only for some components.
 # To enable all selectors, use ["*"]. Examples of other selectors are "beat",
@@ -193,7 +193,7 @@ logging.level: info
 # reporting is disabled by default.
 
 # Set to true to enable the monitoring reporter.
-monitoring.enabled: true
+#monitoring.enabled: true
 
 # Sets the UUID of the Elasticsearch cluster under which monitoring data for this
 # Filebeat instance will appear in the Stack Monitoring UI. If output.elasticsearch
@@ -207,15 +207,15 @@ monitoring.enabled: true
 # output configuration, so if you have the Elasticsearch output configured such
 # that it is pointing to your Elasticsearch monitoring cluster, you can simply
 # uncomment the following line.
-monitoring.elasticsearch:
-  hosts: ["172.26.0.3:9200"]  
+#monitoring.elasticsearch:
+#  hosts: ["172.26.0.3:9200"]  
 
 # ============================== Instrumentation ===============================
 
 # Instrumentation support for the filebeat.
-instrumentation:
+#instrumentation:
     # Set to true to enable instrumentation of filebeat.
-    enabled: false
+    # enabled: false
 
     # Environment in which filebeat is running on (eg: staging, production, etc.)
     #environment: ""
