@@ -12,7 +12,6 @@ COPY . /usr/local/apache2/htdocs/
 
 # Copia os arquivos de configuração do Filebeat e Packetbeat para o container
 COPY filebeat.yml /etc/filebeat/filebeat.yml
-COPY packetbeat.yml /etc/packetbeat/packetbeat.yml
 
 # Copia o script de entrypoint
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
