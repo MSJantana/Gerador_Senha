@@ -1,4 +1,4 @@
-#!bin/bash
+#!/bin/bash
 # Script de entrada (entrypoint) para inicialização do container
 
 # Inicializa o Filebeat e Packetbeat em segundo plano

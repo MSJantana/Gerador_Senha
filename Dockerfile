@@ -14,18 +14,19 @@ COPY . /usr/local/apache2/htdocs/
 COPY filebeat.yml /etc/filebeat/filebeat.yml
 COPY packetbeat.yml /etc/packetbeat/packetbeat.yml
 
-# Copia o script entrypoint
-COPY entrypoint.sh /entrypoint.sh
+# Copia o script de entrypoint
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 
 # Torna o script executável
-RUN chmod +x /entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
 
 # Exponha a porta do Apache (porta 80)
 EXPOSE 80
 
 # Define o script de entrypoint e o comando padrão
-ENTRYPOINT ["/entrypoint.sh"]
-CMD ["httpd-foreground"]
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+CMD ["httpd-foreground","/usr/local/bin/entrypoint.sh"]
+
 
 
 
