@@ -1,14 +1,9 @@
 #!bin/bash
+# Script de entrada (entrypoint) para inicialização do container
 
-#Start Apache
-httpd-foreground &
+# Inicializa o Filebeat e Packetbeat em segundo plano
+service filebeat start
+service packetbeat start
 
-#Start Filebeat in the background
-filebeat -e &
-
-#Start Packet in the background
-packetbeat -e &
-
-#wait for all background processes
-wait
-
+# Inicia o Apache (ou outro serviço principal do container)
+exec "$@"
