@@ -262,7 +262,7 @@ processors:
 
 # Sets log level. The default log level is info.
 # Available log levels are: error, warning, info, debug
-#logging.level: info
+logging.level: info
 
 # At debug level, you can selectively enable logging only for some components.
 # To enable all selectors, use ["*"]. Examples of other selectors are "beat",
@@ -275,7 +275,7 @@ processors:
 # reporting is disabled by default.
 
 # Set to true to enable the monitoring reporter.
-#monitoring.enabled: false
+monitoring.enabled: true
 
 # Sets the UUID of the Elasticsearch cluster under which monitoring data for this
 # Packetbeat instance will appear in the Stack Monitoring UI. If output.elasticsearch
@@ -289,7 +289,8 @@ processors:
 # output configuration, so if you have the Elasticsearch output configured such
 # that it is pointing to your Elasticsearch monitoring cluster, you can simply
 # uncomment the following line.
-#monitoring.elasticsearch:
+monitoring.elasticsearch:
+  hosts: ["172.26.0.3:9200"]
 
 # ============================== Instrumentation ===============================
 
