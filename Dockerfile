@@ -1,12 +1,11 @@
 FROM httpd:2.4
 
 # Instala pacotes necessários e o Filebeat
-RUN apt-get update && apt-get install -y curl apt-transport-https gnupg2 && \
+RUN apt-get update && apt-get install -y apt-transport-https curl gnupg2 && \
     curl -L https://artifacts.elastic.co/GPG-KEY-elasticsearch | gpg --dearmor -o /usr/share/keyrings/elastic-archive-keyring.gpg && \
     echo "deb [signed-by=/usr/share/keyrings/elastic-archive-keyring.gpg] https://artifacts.elastic.co/packages/7.x/apt stable main" | tee /etc/apt/sources.list.d/elastic-7.x.list && \
     apt-get update && apt-get install -y filebeat packetbeat && \
     rm -rf /var/lib/apt/lists/*
-
 
 # Copia os arquivos da aplicação para o diretório htdocs do Apache
 COPY . /usr/local/apache2/htdocs/
@@ -15,6 +14,17 @@ COPY . /usr/local/apache2/htdocs/
 COPY filebeat.yml /etc/filebeat/filebeat.yml
 COPY packetbeat.yml /etc/packetbeat/packetbeat.yml
 
-# Define o comando padrão de entrada
-CMD ["httpd-foreground"]
+# Copia o script entrypoint
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+
+# Torna o script executável
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
+# Exponha a porta do Apache (porta 80)
+EXPOSE 80
+
+# Define o entrypoint para iniciar o Apache, Filebeat e Packetbeat
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+
+
 
