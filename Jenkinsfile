@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = 'safepass:latest'
+        DOCKER_IMAGE = 'msoftsantana/safepass:latest'
     }
 
     stages {
