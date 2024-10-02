@@ -1,17 +1,21 @@
 #!/bin/bash
 # Script de entrada (entrypoint) para inicialização do container
 
+# Ativa e configura os módulos do Filebeat
 filebeat modules enable apache
 filebeat modules enable http
-filebeat modules setup
+filebeat setup
 
+# Ativa e configura os módulos do Packetbeat
 packetbeat modules enable apache
 packetbeat modules enable http
-packetbeat modules setup
+packetbeat setup
 
-# Inicializa o Filebeat e Packetbeat em segundo plano
-service filebeat start
-service packetbeat start
+# Inicializa o Filebeat em segundo plano
+filebeat -e &
+
+# Inicializa o Packetbeat em segundo plano
+packetbeat -e &
 
 # Inicia o Apache (ou outro serviço principal do container)
 exec "$@"
