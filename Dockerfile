@@ -1,4 +1,4 @@
-FROM httpd:2.4
+FROM httpd:2.4.62
 
 # Instala pacotes necessários e o Filebeat
 # RUN apt-get update && apt-get install -y apt-transport-https curl gnupg2 && \
