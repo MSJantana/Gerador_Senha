@@ -22,7 +22,7 @@ RUN sed -i 's/#\(CustomLog.*\)/\1/' /usr/local/apache2/conf/httpd.conf
 COPY . /usr/local/apache2/htdocs/
 
 # Configuração do Filebeat para coletar logs do Apache
-COPY filebeat.yml /etc/filebeat/filebeat.yml
+COPY filebeat.yaml /etc/filebeat/filebeat.yaml
 
 # Exponha a porta 80 do Apache (porta padrão HTTP)
 EXPOSE 80
