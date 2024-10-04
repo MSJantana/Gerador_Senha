@@ -26,9 +26,10 @@ filebeat.modules:
   - module: apache
     access:
       enabled: true
+      var.paths: ["/usr/local/apache2/logs/access_log"]
     error:
       enabled: true
-    var.paths: ["/usr/local/apache2/logs/access_log*"]
+      var.paths: ["/usr/local/apache2/logs/error_log"]
 
 output.elasticsearch:
   # Definir o Elasticsearch como destino de saída
