@@ -8,13 +8,14 @@ RUN apt-get update && \
     apt-get update && \
     apt-get install -y filebeat packetbeat && \
     sed -i 's/#\(CustomLog.*\)/\1/' /usr/local/apache2/conf/httpd.conf && \
+    rm -f /etc/filebeat/filebeat.yml && \
     rm -rf /var/lib/apt/lists/*
 
 # Copia os arquivos da aplicação para o diretório htdocs do Apache
 COPY . /usr/local/apache2/htdocs/
 
 # Configuração do Filebeat para coletar logs do Apache
-COPY filebeat.yaml /etc/filebeat/filebeat.yaml
+COPY filebeat.yml /etc/filebeat/filebeat.yml
 
 # Copia o script entrypoint
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
