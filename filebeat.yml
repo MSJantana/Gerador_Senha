@@ -4,7 +4,7 @@ filebeat.inputs:
     enabled: true
     paths:
       - /usr/local/apache2/logs/access_log*
-      #- /usr/local/apache2/logs/error_log*
+      # - /usr/local/apache2/logs/error_log*
     exclude_files: ['\.gz$']
     fields:
       log_type: apache_access_logs
@@ -12,6 +12,7 @@ filebeat.inputs:
 
   # Coleta de logs dos containers Docker
   - type: container
+    enabled: true
     paths:
       - /var/lib/docker/containers/*/*.log
     processors:
@@ -30,6 +31,11 @@ filebeat.modules:
     error:
       enabled: true
       var.paths: ["/usr/local/apache2/logs/error_log"]
+
+# Configuração dos módulos do Filebeat
+filebeat.config.modules:
+  path: ${path.config}/modules.d/*.yml
+  reload.enabled: false
 
 output.elasticsearch:
   # Definir o Elasticsearch como destino de saída
