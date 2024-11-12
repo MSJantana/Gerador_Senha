@@ -246,8 +246,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.querySelector('#copy').addEventListener('click', function () {
       const password = document.querySelector('#password').textContent;
-
-      if (password) {
+  
+      if (!password) {
+          message('Nenhuma senha gerada', 'warning');
+          return;
+      }
+  
+      // Verifique se o navegador oferece suporte ao Clipboard API
+      if (navigator.clipboard?.writeText) {
         navigator.clipboard.writeText(password)
           .then(() => {
             message('Senha copiada com sucesso!', 'success');
@@ -257,7 +263,9 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error(err);
           });
       } else {
-        message('Nenhuma senha gerada', 'warning');
+        message('Este navegador não suporta a cópia automática para a área de transferência.', 'warning');
+        console.warn("Clipboard API não é suportada neste navegador.");
       }
-    });
+  });
+  
   });
