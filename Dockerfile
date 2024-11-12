@@ -1,15 +1,17 @@
 # Imagem base do Ubuntu 20.04
 FROM ubuntu:20.04
 
-# Define o fuso horário para UTC
+# Define o fuso horário (exemplo: UTC) e sincroniza o horário
 ENV TZ=UTC
-
-# Instalação e configuração em um único comando RUN
 RUN apt-get update && \
-    apt-get install -y apache2 apt-transport-https curl gnupg2 tzdata vim && \
+    apt-get install -y tzdata && \
     apt-get clean && \
-    ln -fs "/usr/share/zoneinfo/$TZ" /etc/localtime && \
-    dpkg-reconfigure --frontend noninteractive tzdata && \
+    ln -fs /usr/share/zoneinfo/$TZ /etc/localtime && \
+    dpkg-reconfigure --frontend noninteractive tzdata
+
+# Instalação de pacotes essenciais e atualização do sistema
+RUN apt-get update && \
+    apt-get install -y apache2 apt-transport-https curl gnupg2 vim && \
     curl -L https://artifacts.elastic.co/GPG-KEY-elasticsearch | gpg --dearmor -o /usr/share/keyrings/elastic-archive-keyring.gpg && \
     echo "deb [signed-by=/usr/share/keyrings/elastic-archive-keyring.gpg] https://artifacts.elastic.co/packages/7.x/apt stable main" | tee /etc/apt/sources.list.d/elastic-7.x.list && \
     apt-get update && \
