@@ -1,6 +1,15 @@
+# Imagem base do Ubuntu 20.04
 FROM ubuntu:20.04
 
-# Instalação do editor vi, curl e atualização do sistema
+# Define o fuso horário (exemplo: UTC) e sincroniza o horário
+ENV TZ=UTC
+RUN apt-get update && \
+    apt-get install -y tzdata && \
+    apt-get clean && \
+    ln -fs /usr/share/zoneinfo/$TZ /etc/localtime && \
+    dpkg-reconfigure --frontend noninteractive tzdata
+
+# Instalação de pacotes essenciais e atualização do sistema
 RUN apt-get update && \
     apt-get install -y apache2 apt-transport-https curl gnupg2 vim && \
     curl -L https://artifacts.elastic.co/GPG-KEY-elasticsearch | gpg --dearmor -o /usr/share/keyrings/elastic-archive-keyring.gpg && \
@@ -9,14 +18,11 @@ RUN apt-get update && \
     apt-get install -y filebeat packetbeat && \
     rm -rf /var/lib/apt/lists/*
 
-# Habilita e configura o Apache
+# Habilita e configura o Apache para gerar logs
 RUN sed -i 's/#\(CustomLog.*\)/\1/' /etc/apache2/apache2.conf  
 
 # Copia os arquivos da aplicação para o diretório padrão do Apache
 COPY . /var/www/html/
-
-# Copia os arquivos da aplicação para o diretório htdocs do Apache
-#COPY . /usr/local/apache2/htdocs/
 
 # Configuração do Filebeat para coletar logs do Apache
 COPY filebeat.yml /etc/filebeat/filebeat.yml
